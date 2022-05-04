@@ -1,43 +1,56 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  transition: box-shadow 0.6s ease;
+  transition: border-color 0.6s ease;
 
   box-shadow: none;
-  border: 1px solid #0000001a;
+  border: 1px solid #f8f8f8;
 
   border-radius: 10px;
 
-  cursor: pointer;
-
-  :hover {
-    border-color: #f8f8f8;
-  }
+  /* cursor: pointer; */
 
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
 
-  padding: 20px;
+  padding: 10px 20px 20px 20px;
   margin: 0 auto;
   margin-bottom: 20px;
   position: relative;
 
-  button {
-    position: absolute;
-    right: 1rem;
-    top: 1rem;
+  :hover {
+    border-color: #0000001a;
+  }
 
-    background: #f8f8f8;
+  .header {
+    display: flex;
+    width: 100%;
 
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
+    padding-bottom: 1rem;
 
-    font-size: 1.4rem;
-    color: ${({ theme }) => theme.colors.text};
-    font-family: 'Poppins';
-    font-weight: 500;
+    gap: 20px;
 
-    padding: 4px 8px;
+    justify-content: flex-end !important;
+    align-items: center !important;
+
+    button {
+      background: #f8f8f8;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      border-radius: 5px;
+
+      font-size: 1.4rem;
+      color: ${({ theme }) => theme.colors.text} !important;
+      font-family: 'Poppins';
+      font-weight: 500;
+
+      padding: 0.5rem !important;
+    }
   }
 
   .icon-container {

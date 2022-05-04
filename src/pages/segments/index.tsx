@@ -122,6 +122,7 @@ export default function Segments() {
             <TitleItem>Segmento de Dúvidas</TitleItem>
             <button>
               <PlusIcon size={30} color={colors.text} />
+              <span>Nova Resposta</span>
             </button>
           </div>
           <section>

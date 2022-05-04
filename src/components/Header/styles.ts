@@ -176,7 +176,7 @@ export const Container = styled.nav`
       left: 2rem;
       top: 2.5rem;
       cursor: pointer;
-      transition: all 0.3s ease-in;
+      transition: all 0.3s;
       &:before {
         content: '';
         display: block;
@@ -186,7 +186,7 @@ export const Container = styled.nav`
         left: 0;
         background: ${({ theme }) => theme.colors.primary};
         top: 1rem;
-        transition: all 0.3s ease-in;
+        transition: all 0.3s;
       }
       &:after {
         content: '';
@@ -197,7 +197,7 @@ export const Container = styled.nav`
         left: 0;
         background: ${({ theme }) => theme.colors.primary};
         bottom: 0;
-        transition: all 0.3s ease-in;
+        transition: all 0.3s;
       }
     }
 
@@ -206,15 +206,15 @@ export const Container = styled.nav`
       z-index: 10;
       margin: 10rem 0 0 2rem;
 
+      width: 90%;
+
       li {
         display: flex;
         align-items: center;
-        height: 5rem;
-        width: 0;
-
+        height: 6rem;
+        transition: all 1s;
         margin: 3rem 0;
-        background: #eae8e5;
-        transition: all 0.6s ease-in;
+
         & + li {
           margin-left: -4rem;
           & + li {
@@ -227,13 +227,15 @@ export const Container = styled.nav`
       }
 
       li > div {
+        transition: all 1s;
+        width: 0px;
         display: flex;
         align-items: center;
         background-color: #fff;
-        flex: 1;
+
         height: 100%;
         gap: 20px;
-        padding: 20px;
+
         border-radius: 5px;
       }
 
@@ -262,9 +264,14 @@ export const Container = styled.nav`
         }
       }
       #nav li {
-        width: 200px;
         margin-left: 0;
       }
+
+      #nav li > div {
+        padding: 20px;
+        width: 100%;
+      }
+
       #burgerBtn {
         border-color: transparent;
         z-index: 1;

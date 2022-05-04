@@ -16,6 +16,25 @@ export const Container = styled.div`
 
     button {
       background: transparent;
+
+      display: flex;
+      align-items: center;
+
+      font-weight: 500;
+      color: ${({ theme }) => theme.colors.text};
+      font-size: 1.6rem;
+      line-height: 2.2rem;
+      font-family: 'Poppins';
+
+      @media (max-width: 440px) {
+        span {
+          display: none;
+        }
+      }
+
+      span {
+        margin-left: 0.8rem;
+      }
     }
   }
 
