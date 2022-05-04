@@ -20,24 +20,27 @@ export default function Answers() {
   }
 
   const doubts = [
-    // {
-    //   id: '1',
-    //   title: 'Como mudar minha senha do portal do aluno? ',
-    //   description:
-    //     'Nesse tutorial você aprenderá como mudar sua senha do portal do aluno.',
-    //   author: 'Suporte do aluno',
-    //   articles: 1,
-    // },
+    {
+      id: '1',
+      title: 'Como mudar minha senha do portal do aluno? ',
+      description:
+        'Nesse tutorial você aprenderá como mudar sua senha do portal do aluno.',
+      author: 'Suporte do aluno',
+      articles: 1,
+    },
   ];
-
-  // const doubts = [];
 
   const Content = ({ children }) => (
     <Header>
       <Container>
         <ContactButton />
 
-        <Modal title="Oi" onClose={() => setIsOpen(false)} show={modalIsOpen}>
+        <Modal
+          title="Oi"
+          onBackDropPress={() => setIsOpen(false)}
+          onClose={() => setIsOpen(false)}
+          show={modalIsOpen}
+        >
           Hello from the modal!
         </Modal>
         {children}
