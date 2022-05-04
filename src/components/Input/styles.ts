@@ -41,8 +41,8 @@ export const InputContainer = styled.div<InputProps>`
 
   ${css<InputProps>`
     ${({ isFocus, theme, value }) =>
-      isFocus || value !== ''
-        ? `.placeholder {
+      (isFocus || value !== '') &&
+      `.placeholder {
     position: absolute;
     top: -1.2rem;
     left: 1.6rem;
@@ -56,20 +56,12 @@ export const InputContainer = styled.div<InputProps>`
 
     padding:2px 10px;
     text-align:center;
-  }`
-        : value === '' &&
-          `.placeholder {
-    position: absolute;
-    top: 2rem;
-    left: 6.4rem;
-
-    color:#8B8FA8;
-    font-weight: 500;
-    font-size: 1.6rem;
-    line-height:2.4rem;
-
-
   }`}
+  `}
+
+  ${css<InputProps>`
+    ${({ value, isFocus }) =>
+      value !== '' && !isFocus && `.placeholder{display:none;}`}
   `}
 `;
 
@@ -77,6 +69,12 @@ export const InputItem = styled.input<InputProps>`
   height: 100%;
   width: 100%;
   border-radius: 10px;
+
+  color: #8b8fa8;
+  font-weight: 500;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  font-family: 'Poppins';
 
   background-color: ${({ isFocus }) => (isFocus ? '#fff' : 'transparent')};
 
