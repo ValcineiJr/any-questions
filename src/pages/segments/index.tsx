@@ -73,14 +73,17 @@ export default function Segments() {
     },
   ];
 
-  // const doubts = [];
-
   const Content = ({ children }) => (
     <Header>
       <Container>
         <ContactButton />
 
-        <Modal title="Oi" onClose={() => setIsOpen(false)} show={modalIsOpen}>
+        <Modal
+          title="Oi"
+          onBackDropPress={() => setIsOpen(false)}
+          onClose={() => setIsOpen(false)}
+          show={modalIsOpen}
+        >
           Hello from the modal!
         </Modal>
         {children}
