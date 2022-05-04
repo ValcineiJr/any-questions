@@ -19,7 +19,7 @@ export default function Login() {
 
   function handleLogin() {
     if (name === 'valcinei') {
-      Router.replace('/dashboard', '/dashboard', { shallow: true });
+      Router.replace('/segments', '/segments', { shallow: true });
     }
   }
 
