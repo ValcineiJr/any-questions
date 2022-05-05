@@ -8,7 +8,7 @@ export default createGlobalStyle`
 }
 
 html,body {
-  font-family: "Poppins", sans-serif;
+  font-family: "Poppins", sans-serif !important;
 
 }
 
@@ -45,7 +45,7 @@ img {
 
 //responsive
 
-@media (max-width: 400px) {
+@media (max-width: 500px) {
   html {
     font-size: 50%;
   }

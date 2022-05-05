@@ -76,7 +76,8 @@ export default function Personalize() {
   }
 
   return (
-    <Header>
+    <>
+      <Header />
       <Container>
         <Modal
           show={modalIsOpen}
@@ -117,11 +118,17 @@ export default function Personalize() {
             <p>Deixe o AnyQuestion com a sua cara</p>
           </div>
           <div className="input-group">
-            <SelectComponent label="Logotipo" title="Carregue a sua logo" />
+            <SelectComponent
+              label="Logotipo"
+              type="image"
+              title="Carregue a sua logo"
+            />
             <SelectComponent
               onClick={handleToggleModal}
               label="Pacote de icones"
               title={selectedIconFolder}
+              isSelect
+              type="none"
             />
             <SelectComponent
               label="Cor Principal"
@@ -134,6 +141,6 @@ export default function Personalize() {
           </ButtonItem>
         </section>
       </Container>
-    </Header>
+    </>
   );
 }

@@ -31,7 +31,8 @@ export default function Answers() {
   ];
 
   const Content = ({ children }) => (
-    <Header>
+    <>
+      <Header />
       <Container>
         <ContactButton />
 
@@ -45,7 +46,7 @@ export default function Answers() {
         </Modal>
         {children}
       </Container>
-    </Header>
+    </>
   );
 
   if (doubts.length <= 0) {

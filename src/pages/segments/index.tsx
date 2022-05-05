@@ -1,5 +1,8 @@
 import { Button } from '@components/Button';
 import { Header } from '@components/Header';
+import Pagination from '@etchteam/next-pagination';
+import Router from 'next/router';
+import '@etchteam/next-pagination/dist/index.css';
 
 import {
   AiOutlineMail as MailIcon,
@@ -13,13 +16,16 @@ import { Container } from '@styles/pages/segments';
 import { ContactButton } from '@components/ContactButton';
 import { DoubtComponent } from '@components/DoubtComponent';
 import { TitleItem } from '@components/Title/styles';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Modal from '@components/Modal';
 import { useTheme } from 'styled-components';
 
-export default function Segments() {
+export default function Segments(props) {
   const [modalIsOpen, setIsOpen] = useState(false);
   const { colors } = useTheme();
+  const [isLoading, setLoading] = useState(false);
+  const startLoading = () => setLoading(true);
+  const stopLoading = () => setLoading(false);
 
   function handleToggleModal() {
     setIsOpen((state) => !state);
@@ -62,19 +68,32 @@ export default function Segments() {
       articles: 3,
       icon: MailIcon,
     },
-    {
-      id: '5',
-      title: 'Aluno',
-      description:
-        'Tudo sobre o portal do aluno: Agenda, Diciplinas, Docs, Financeiro, Histórico, Mensagens, Mural, Perfil e Solicitação de protocolo.',
-      author: 'Suporte do aluno',
-      articles: 3,
-      icon: PasswordIcon,
-    },
   ];
 
+  useEffect(() => {
+    Router.events.on('routeChangeStart', startLoading);
+    Router.events.on('routeChangeComplete', stopLoading);
+
+    return () => {
+      Router.events.off('routeChangeStart', startLoading);
+      Router.events.off('routeChangeComplete', stopLoading);
+    };
+  }, []);
+
+  const pagginationHandler = (page) => {
+    const currentPath = props.router.pathname;
+    const currentQuery = props.router.query;
+    currentQuery.page = page.selected + 1;
+
+    props.router.push({
+      pathname: currentPath,
+      query: currentQuery,
+    });
+  };
+
   const Content = ({ children }) => (
-    <Header>
+    <>
+      <Header />
       <Container>
         <ContactButton />
 
@@ -88,7 +107,7 @@ export default function Segments() {
         </Modal>
         {children}
       </Container>
-    </Header>
+    </>
   );
 
   if (doubts.length <= 0) {
@@ -125,6 +144,9 @@ export default function Segments() {
               <span>Nova Resposta</span>
             </button>
           </div>
+          <br />
+          <br />
+          <Pagination perPageText="Por página" total={1000} />
           <section>
             {doubts.map((item) => (
               <DoubtComponent key={item.id} data={item} />

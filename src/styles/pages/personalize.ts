@@ -1,19 +1,19 @@
 import styled from 'styled-components';
 
 export const Container = styled.main`
-  width: 100%;
+  width: 90%;
+  max-width: 1200px;
+
+  margin: 0 auto;
+
   padding: 20px;
 
   background-color: #fff;
-  border-top: 1px solid #ececee;
 
   padding-bottom: 50px;
 
   section {
     width: 100%;
-    max-width: 600px;
-
-    margin: 0 auto;
 
     /* background: red; */
 

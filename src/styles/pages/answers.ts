@@ -1,11 +1,14 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  width: 100%;
+  width: 90%;
+  max-width: 1200px;
+
+  margin: 0 auto;
+
   padding: 20px;
 
   background-color: #fff;
-  border-top: 1px solid #ececee;
 
   padding-bottom: 50px;
 
