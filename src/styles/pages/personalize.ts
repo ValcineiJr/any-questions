@@ -14,6 +14,8 @@ export const Container = styled.main`
 
   section {
     width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
 
     /* background: red; */
 

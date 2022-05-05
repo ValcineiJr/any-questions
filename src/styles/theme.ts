@@ -6,6 +6,7 @@ const theme = {
     text_disabled: '#8A8EA8',
     alternative_text_color: '#565867',
     container_background: '#F5F5F7',
+    border_color: '#0000001A',
   },
 };
 

@@ -10,12 +10,14 @@ import CoinsSVG from '@assets/icons/coins.svg';
 import BagSVG from '@assets/icons/bag.svg';
 
 import { useTheme } from 'styled-components';
-import { FaBell } from 'react-icons/fa';
+import { FaBell, FaUserCircle } from 'react-icons/fa';
 import { BiChevronDown } from 'react-icons/bi';
-import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
+import { AiOutlineMenu, AiOutlineClose, AiOutlineLogin } from 'react-icons/ai';
+import { HiOutlineCog } from 'react-icons/hi';
 
 export function Header() {
   const [toggle, setToggle] = useState(false);
+  const [subToggle, setSubToggle] = useState(false);
   const { colors } = useTheme();
   const { asPath: route } = useRouter();
 
@@ -76,11 +78,30 @@ export function Header() {
       </button>
       <div className="profile-box">
         <FaBell size={20} color="#868AA5" />
-        <button>
+        <button onClick={() => setSubToggle((state) => !state)}>
           <img src="https://github.com/valcineijr.png" alt="imagem de perfil" />
           <span>Valcinei</span>
           <BiChevronDown size={20} />
         </button>
+        <div className={cx('sub-menu', { subToggle })}>
+          <ul>
+            <li>
+              <button>
+                <FaUserCircle size={25} /> <span>Perfil</span>
+              </button>
+            </li>
+            <li>
+              <button>
+                <HiOutlineCog size={25} /> <span>Configurações</span>
+              </button>
+            </li>
+            <li>
+              <button>
+                <AiOutlineLogin size={25} /> <span>Sair</span>
+              </button>
+            </li>
+          </ul>
+        </div>
       </div>
     </Container>
   );

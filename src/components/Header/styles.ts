@@ -153,14 +153,69 @@ export const Container = styled.header`
     display: flex;
     align-items: center;
     gap: 20px;
+    position: relative;
 
-    button {
+    .sub-menu {
+      position: absolute;
+
+      width: 80%;
+
+      transition: all 0.6s;
+
+      height: 0;
+      opacity: 0;
+
+      right: 0;
+      top: 70px;
+
+      border: 1px solid ${({ theme }) => theme.colors.border_color};
+      border-radius: 8px;
+
+      background-color: #fff;
+
+      button {
+        background-color: transparent;
+        width: 100%;
+        padding: 1rem;
+
+        display: flex;
+        align-items: center;
+        gap: 15px;
+
+        span {
+          font-weight: 500;
+          font-size: 1rem;
+          color: ${({ theme }) => theme.colors.text_disabled};
+          font-family: 'Poppins';
+        }
+      }
+
+      button:hover {
+        svg {
+          color: ${({ theme }) => theme.colors.primary};
+        }
+        span {
+          color: ${({ theme }) => theme.colors.text};
+        }
+      }
+    }
+
+    .sub-menu.subToggle {
+      height: auto;
+      opacity: 1;
+    }
+
+    > button {
       display: flex;
       align-items: center;
       gap: 15px;
 
       padding: 1rem;
       border-radius: 8px;
+
+      border: 1px solid #fff;
+
+      transition: all 0.6s;
 
       background-color: #f5f5f7;
 
@@ -177,6 +232,11 @@ export const Container = styled.header`
 
         border-radius: 20px;
       }
+    }
+
+    button:hover {
+      background-color: #fff;
+      border-color: #0000001a;
     }
   }
 `;
