@@ -1,6 +1,7 @@
 import { Button } from '@components/Button';
 import { ButtonItem } from '@components/Button/styles';
 import { ContactButton } from '@components/ContactButton';
+import { SketchPicker } from 'react-color';
 import { Header } from '@components/Header';
 import Modal from '@components/Modal';
 import { SelectComponent } from '@components/SelectComponent';
@@ -23,6 +24,7 @@ import {
   PackageContainer,
   ModalContainer,
 } from '../../styles/pages/personalize';
+import { useUser } from '@hooks/useUser';
 
 interface FolderProps {
   folderName: string;
@@ -31,6 +33,7 @@ interface FolderProps {
 
 export default function Personalize() {
   const [modalIsOpen, setIsOpen] = useState(false);
+  const [selectedColor, setSelectedColor] = useState('');
   const [selectedIconFolder, setSelectedIconFolder] = useState(
     'Selecione um pacote'
   );
@@ -74,6 +77,8 @@ export default function Personalize() {
       setSelectedFolder(null);
     }
   }
+
+  const { mainColor, setMainScolor } = useUser();
 
   return (
     <>
@@ -130,13 +135,18 @@ export default function Personalize() {
               isSelect
               type="none"
             />
-            <SelectComponent
-              label="Cor Principal"
-              title="Código HEX"
-              isSelect={false}
-            />
+            <label className="color">Cor Principal</label>
+            <div className="color">
+              <SketchPicker
+                color={selectedColor}
+                onChangeComplete={(color) => {
+                  setSelectedColor(color.hex);
+                  setMainScolor(color.hex);
+                }}
+              />
+            </div>
           </div>
-          <ButtonItem>
+          <ButtonItem color={mainColor}>
             <span>Criar</span>
           </ButtonItem>
         </section>

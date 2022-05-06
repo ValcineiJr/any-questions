@@ -35,6 +35,12 @@ export const Container = styled.div`
     border-radius: 10px;
 
     span {
+      width: 100%;
+
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+
       color: ${({ theme }) => theme.colors.text_disabled};
       font-weight: 500;
       line-height: 2.4rem;

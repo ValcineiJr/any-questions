@@ -192,10 +192,10 @@ export const Container = styled.header`
 
       button:hover {
         svg {
-          color: ${({ theme }) => theme.colors.primary};
+          color: ${({ color }) => color};
         }
         span {
-          color: ${({ theme }) => theme.colors.text};
+          color: ${({ color }) => color};
         }
       }
     }

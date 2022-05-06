@@ -14,12 +14,14 @@ import { FaBell, FaUserCircle } from 'react-icons/fa';
 import { BiChevronDown } from 'react-icons/bi';
 import { AiOutlineMenu, AiOutlineClose, AiOutlineLogin } from 'react-icons/ai';
 import { HiOutlineCog } from 'react-icons/hi';
+import { useUser } from '@hooks/useUser';
 
 export function Header() {
   const [toggle, setToggle] = useState(false);
   const [subToggle, setSubToggle] = useState(false);
   const { colors } = useTheme();
   const { asPath: route } = useRouter();
+  const { mainColor } = useUser();
 
   const menuItems = [
     {
@@ -34,16 +36,14 @@ export function Header() {
   ];
 
   return (
-    <Container>
+    <Container color={mainColor}>
       <nav className="desktop">
         <ul>
           {menuItems.map((item) => (
             <Link key={item.id} href={item.link}>
               <div>
                 <item.icon
-                  color={
-                    route === item.link ? colors.primary : colors.text_disabled
-                  }
+                  color={route === item.link ? mainColor : colors.text_disabled}
                 />
                 <li className={cx({ active: route === item.link })}>
                   {item.name}
@@ -61,9 +61,7 @@ export function Header() {
             <Link key={item.id} href={item.link}>
               <div>
                 <item.icon
-                  color={
-                    route === item.link ? colors.primary : colors.text_disabled
-                  }
+                  color={route === item.link ? mainColor : colors.text_disabled}
                 />
                 <li className={cx({ active: route === item.link })}>
                   {item.name}
@@ -74,7 +72,11 @@ export function Header() {
         </ul>
       </nav>
       <button onClick={() => setToggle((state) => !state)} className="menu">
-        {!toggle ? <AiOutlineMenu size={30} /> : <AiOutlineClose size={30} />}
+        {!toggle ? (
+          <AiOutlineMenu color={mainColor} size={30} />
+        ) : (
+          <AiOutlineClose color={mainColor} size={30} />
+        )}
       </button>
       <div className="profile-box">
         <FaBell size={20} color="#868AA5" />

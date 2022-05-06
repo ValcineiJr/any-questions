@@ -12,6 +12,22 @@ export const Container = styled.main`
 
   padding-bottom: 50px;
 
+  label.color {
+    color: ${({ theme }) => theme.colors.text};
+    font-weight: 500;
+    line-height: 2.4rem;
+    font-size: 1.6rem;
+  }
+
+  div.color {
+    display: flex;
+    flex-direction: column;
+
+    padding-top: 10px;
+
+    align-items: center;
+  }
+
   section {
     width: 100%;
     max-width: 600px;

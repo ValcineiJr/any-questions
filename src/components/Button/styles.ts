@@ -5,8 +5,7 @@ interface ButtonProps {
 }
 
 export const ButtonItem = styled.button<ButtonProps>`
-  background-color: ${({ theme }) => theme.colors.primary};
-
+  background-color: ${({ color }) => color};
   ${css<ButtonProps>`
     ${({ disabled, theme }) =>
       disabled &&
